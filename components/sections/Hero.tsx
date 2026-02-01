@@ -1,11 +1,13 @@
 'use client'
 
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Play } from 'lucide-react'
 import { Button, Badge } from '@/components/ui'
+import { useI18n } from '@/lib/i18n'
 
 export function Hero() {
+  const { t } = useI18n()
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-white dark:from-gray-900 dark:to-gray-950 py-16 md:py-24">
       <div className="container-narrow">
@@ -17,29 +19,27 @@ export function Hero() {
             transition={{ duration: 0.5 }}
           >
             <Badge variant="primary" className="mb-6">
-              NEW: Automated Case Synchronization
+              {t.hero.badge}
             </Badge>
 
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
-              Stop QAing in Excel.{' '}
+              {t.hero.title}{' '}
               <br className="hidden sm:block" />
-              Start Scaling with{' '}
-              <span className="text-primary-600">GlitchSnap.</span>
+              {t.hero.titleHighlight}{' '}
+              <span className="text-primary-600">{t.hero.titleBrand}</span>
             </h1>
 
             <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-lg">
-              The test case management platform built for modern QA teams.
-              Organize, execute, and track results in a familiar interface
-              without the spreadsheet headache.
+              {t.hero.description}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button size="lg" href="https://app.glitchsnap.studio/demo">
-                Book Demo
+                {t.nav.bookDemo}
               </Button>
               <Button size="lg" variant="outline" href="#demo">
                 <Play className="mr-2 w-4 h-4" />
-                Watch Video
+                {t.hero.watchVideo}
               </Button>
             </div>
 
@@ -54,7 +54,7 @@ export function Hero() {
                 ))}
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Trusted by <span className="font-medium">500+</span> QA teams worldwide
+                {t.hero.trustedBy} <span className="font-medium">500+</span> {t.hero.teamsWorldwide}
               </p>
             </div>
           </motion.div>

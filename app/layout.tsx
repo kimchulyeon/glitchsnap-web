@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
+import { I18nProvider } from '@/lib/i18n'
 import { Header, Footer } from '@/components/layout'
 import { siteConfig } from '@/lib/constants'
 import { generateOrganizationSchema, generateSoftwareApplicationSchema } from '@/lib/metadata'
@@ -97,9 +98,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <I18nProvider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </I18nProvider>
         </ThemeProvider>
         {/* JSON-LD Structured Data */}
         <script

@@ -4,9 +4,11 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Upload } from 'lucide-react'
 import { Button } from '@/components/ui'
+import { useI18n } from '@/lib/i18n'
 
 export function CTA() {
   const [email, setEmail] = useState('')
+  const { t } = useI18n()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -26,11 +28,10 @@ export function CTA() {
         >
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-              Ready to modernize your QA workflow?
+              {t.cta.title}
             </h2>
             <p className="mt-4 text-lg text-primary-100">
-              Join 500+ QA teams moving faster with GlitchSnap. No credit card
-              required. Start your 14-day trial today.
+              {t.cta.description}
             </p>
 
             {/* Email Form */}
@@ -39,7 +40,7 @@ export function CTA() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your work email"
+                placeholder={t.cta.placeholder}
                 required
                 className="flex-1 px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50"
               />
@@ -47,7 +48,7 @@ export function CTA() {
                 type="submit"
                 className="bg-gray-900 text-white hover:bg-gray-800 px-6"
               >
-                Get Started
+                {t.cta.getStarted}
               </Button>
             </form>
 
@@ -57,7 +58,7 @@ export function CTA() {
               className="mt-4 inline-flex items-center gap-2 text-primary-100 hover:text-white transition-colors"
             >
               <Upload className="w-4 h-4" />
-              <span className="text-sm">Or import from Excel</span>
+              <span className="text-sm">{t.cta.importExcel}</span>
             </button>
           </div>
         </motion.div>

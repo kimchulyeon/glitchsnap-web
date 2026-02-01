@@ -6,14 +6,26 @@ import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { navigation } from '@/lib/constants'
+import { useI18n } from '@/lib/i18n'
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { language, toggleLanguage, t } = useI18n()
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
     return pathname.startsWith(href)
+  }
+
+  // Map navigation items to translated names
+  const getNavName = (name: string) => {
+    const navMap: Record<string, string> = {
+      Features: t.nav.features,
+      Pricing: t.nav.pricing,
+      Resources: t.nav.resources,
+    }
+    return navMap[name] || name
   }
 
   return (
@@ -30,7 +42,7 @@ export function Navigation() {
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800'
             }`}
           >
-            {item.name}
+            {getNavName(item.name)}
           </Link>
         ))}
       </nav>
@@ -67,16 +79,25 @@ export function Navigation() {
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800'
                   }`}
                 >
-                  {item.name}
+                  {getNavName(item.name)}
                 </Link>
               ))}
-              <div className="mt-4 pt-4 border-t border-border">
+              <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
+                <button
+                  onClick={() => {
+                    toggleLanguage()
+                    setMobileMenuOpen(false)
+                  }}
+                  className="w-full px-4 py-3 text-center text-base font-medium rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300"
+                >
+                  {language === 'en' ? '한국어로 보기' : 'View in English'}
+                </button>
                 <Link
                   href="https://app.glitchsnap.studio/signup"
                   className="block w-full px-4 py-3 text-center text-base font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Book Demo
+                  {t.nav.bookDemo}
                 </Link>
               </div>
             </nav>

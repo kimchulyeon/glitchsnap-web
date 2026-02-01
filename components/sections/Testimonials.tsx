@@ -2,9 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
-import { testimonials, companyLogos } from '@/lib/constants'
+import { companyLogos } from '@/lib/constants'
+import { useI18n } from '@/lib/i18n'
 
 export function Testimonials() {
+  const { t, language } = useI18n()
+
   return (
     <section className="py-20 md:py-28 bg-gray-50 dark:bg-gray-900/50">
       <div className="container-narrow">
@@ -16,15 +19,15 @@ export function Testimonials() {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-            Trusted by QA Leaders worldwide
+            {t.testimonials.title}
           </h2>
           <div className="w-16 h-1 bg-primary-500 mx-auto mt-4 rounded-full" />
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
+          {t.testimonials.items.map((testimonial, index) => (
             <motion.div
-              key={testimonial.author}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -33,7 +36,7 @@ export function Testimonials() {
             >
               {/* Star Rating */}
               <div className="flex gap-1 mb-4">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
                     className="w-5 h-5 fill-primary-500 text-primary-500"
@@ -57,7 +60,7 @@ export function Testimonials() {
                     {testimonial.author}
                   </p>
                   <p className="text-sm text-primary-600">
-                    {testimonial.role} at {testimonial.company}
+                    {testimonial.role} {language === 'ko' ? '@' : 'at'} {testimonial.company}
                   </p>
                 </div>
               </div>

@@ -2,17 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { Table, Play, FileText, Users } from 'lucide-react'
-import { features } from '@/lib/constants'
 import { Button } from '@/components/ui'
+import { useI18n } from '@/lib/i18n'
 
-const iconMap: Record<string, typeof Table> = {
-  Table,
-  Play,
-  FileText,
-  Users,
-}
+const icons = [Table, Play, FileText, Users]
 
 export function Features() {
+  const { t } = useI18n()
+
   return (
     <section id="features" className="py-20 md:py-28">
       <div className="container-narrow">
@@ -24,23 +21,22 @@ export function Features() {
           className="max-w-2xl mb-16"
         >
           <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">
-            Core Capabilities
+            {t.features.label}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-            Powerful Features for Modern QA
+            {t.features.title}
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-            Streamline your testing workflow with enterprise-grade tools designed for speed,
-            precision, and zero learning curve.
+            {t.features.description}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {features.map((feature, index) => {
-            const Icon = iconMap[feature.icon]
+          {t.features.items.map((feature, index) => {
+            const Icon = icons[index]
             return (
               <motion.div
-                key={feature.title}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -71,19 +67,18 @@ export function Features() {
         >
           <div>
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-              Ready to scale your QA process?
+              {t.features.cta.title}
             </h3>
             <p className="mt-1 text-gray-600 dark:text-gray-400">
-              Join hundreds of high-performing teams using GlitchSnap Studio
-              to deliver bug-free software at scale.
+              {t.features.cta.description}
             </p>
           </div>
           <div className="flex gap-3 shrink-0">
             <Button href="https://app.glitchsnap.studio/signup">
-              Get Started Now
+              {t.features.cta.getStarted}
             </Button>
             <Button variant="outline" href="/demo/">
-              Request a Demo
+              {t.features.cta.requestDemo}
             </Button>
           </div>
         </motion.div>
@@ -119,11 +114,10 @@ export function Features() {
 
           <div className="text-center mt-10">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Engineered for Excellence
+              {t.features.excellence.title}
             </h3>
             <p className="mt-3 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-              GlitchSnap Studio combines the familiarity of traditional tools with the power of
-              modern automation, ensuring your team stays productive from day one.
+              {t.features.excellence.description}
             </p>
           </div>
         </motion.div>

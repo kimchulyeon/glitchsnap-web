@@ -1,8 +1,41 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
-import { siteConfig, navigation } from '@/lib/constants'
+import { siteConfig } from '@/lib/constants'
+import { useI18n } from '@/lib/i18n'
 
 export function Footer() {
+  const { t, language, toggleLanguage } = useI18n()
+
+  // Footer link data with translations
+  const footerLinks = {
+    product: [
+      { name: t.footer.links.features, href: '/features/' },
+      { name: t.footer.links.pricing, href: '/pricing/' },
+      { name: t.footer.links.integrations, href: '#' },
+      { name: t.footer.links.changelog, href: '#' },
+    ],
+    resources: [
+      { name: t.footer.links.documentation, href: '#' },
+      { name: t.footer.links.apiReference, href: '#' },
+      { name: t.footer.links.qaBlog, href: '/blog/' },
+      { name: t.footer.links.community, href: '#' },
+    ],
+    company: [
+      { name: t.footer.links.aboutUs, href: '/about/' },
+      { name: t.footer.links.careers, href: '#' },
+      { name: t.footer.links.contact, href: '#' },
+      { name: t.footer.links.partners, href: '#' },
+    ],
+    legal: [
+      { name: t.footer.links.privacyPolicy, href: '#' },
+      { name: t.footer.links.termsOfService, href: '#' },
+      { name: t.footer.links.security, href: '#' },
+      { name: t.footer.links.cookieSettings, href: '#' },
+    ],
+  }
+
   return (
     <footer className="bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800">
       <div className="container-narrow py-12 md:py-16">
@@ -10,10 +43,10 @@ export function Footer() {
           {/* Product Links */}
           <div>
             <h3 className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-4">
-              Product
+              {t.footer.product}
             </h3>
             <ul className="space-y-3">
-              {navigation.footer.product.map((item) => (
+              {footerLinks.product.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -29,10 +62,10 @@ export function Footer() {
           {/* Resources Links */}
           <div>
             <h3 className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-4">
-              Resources
+              {t.footer.resources}
             </h3>
             <ul className="space-y-3">
-              {navigation.footer.resources.map((item) => (
+              {footerLinks.resources.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -48,10 +81,10 @@ export function Footer() {
           {/* Company Links */}
           <div>
             <h3 className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-4">
-              Company
+              {t.footer.company}
             </h3>
             <ul className="space-y-3">
-              {navigation.footer.company.map((item) => (
+              {footerLinks.company.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -67,10 +100,10 @@ export function Footer() {
           {/* Legal Links */}
           <div>
             <h3 className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-4">
-              Legal
+              {t.footer.legal}
             </h3>
             <ul className="space-y-3">
-              {navigation.footer.legal.map((item) => (
+              {footerLinks.legal.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -99,14 +132,18 @@ export function Footer() {
             </span>
             <span className="text-gray-400 dark:text-gray-500 mx-2">|</span>
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              &copy; {new Date().getFullYear()} GlitchSnap Studio Inc. All rights reserved.
+              &copy; {new Date().getFullYear()} {t.footer.copyright}
             </span>
           </div>
 
           <div className="flex items-center gap-4 text-gray-400 dark:text-gray-500">
-            {/* Language selector placeholder */}
-            <button className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
-              <span className="text-sm">한</span>
+            {/* Language selector */}
+            <button
+              onClick={toggleLanguage}
+              className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors text-sm font-medium"
+              aria-label={language === 'en' ? 'Switch to Korean' : 'Switch to English'}
+            >
+              {language === 'en' ? '한국어' : 'EN'}
             </button>
             {/* Social icons placeholder */}
             <button className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">

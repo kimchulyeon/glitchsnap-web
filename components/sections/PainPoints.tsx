@@ -2,15 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { History, FileWarning, Users } from 'lucide-react'
-import { painPoints } from '@/lib/constants'
+import { useI18n } from '@/lib/i18n'
 
-const iconMap: Record<string, typeof History> = {
-  History,
-  FileWarning,
-  UsersX: Users,
-}
+const icons = [History, FileWarning, Users]
 
 export function PainPoints() {
+  const { t } = useI18n()
+
   return (
     <section className="py-20 md:py-28 bg-gray-50 dark:bg-gray-900/50">
       <div className="container-narrow">
@@ -22,23 +20,22 @@ export function PainPoints() {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">
-            Pain Points
+            {t.painPoints.label}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-            The Excel Trap
+            {t.painPoints.title}
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-            Spreadsheets were never meant for complex software testing. Break free
-            from the manual limitations that slow your entire team down.
+            {t.painPoints.description}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {painPoints.map((item, index) => {
-            const Icon = iconMap[item.icon]
+          {t.painPoints.items.map((item, index) => {
+            const Icon = icons[index]
             return (
               <motion.div
-                key={item.title}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
