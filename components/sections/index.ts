@@ -1,0 +1,7 @@
+export { Hero } from './Hero'
+export { PainPoints } from './PainPoints'
+export { Features } from './Features'
+export { HowItWorks } from './HowItWorks'
+export { Pricing } from './Pricing'
+export { Testimonials } from './Testimonials'
+export { CTA } from './CTA'
