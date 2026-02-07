@@ -3,8 +3,8 @@ export const siteConfig = {
   tagline: 'Test Case Management for Modern QA Teams',
   description:
     'The test case management platform built for modern QA teams. Organize, execute, and track results in a familiar interface without the spreadsheet headache.',
-  url: 'https://glitchsnap.studio',
-  ogImage: 'https://glitchsnap.studio/og.png',
+  url: 'https://www.glitchsnap.com',
+  ogImage: 'https://www.glitchsnap.com/og.png',
   links: {
     twitter: 'https://twitter.com/glitchsnap',
     github: 'https://github.com/glitchsnap',
