@@ -9,7 +9,7 @@ export function Pricing() {
   const { t } = useI18n()
 
   return (
-    <section id="pricing" className="py-20 md:py-28">
+    <section id="pricing" className="py-20 md:py-28 bg-gray-900 dark:bg-gray-900">
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -18,10 +18,10 @@ export function Pricing() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl md:text-3xl font-bold text-white">
             {t.pricing.title}
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <p className="mt-4 text-lg text-gray-400">
             {t.pricing.description}
           </p>
         </motion.div>
@@ -38,9 +38,9 @@ export function Pricing() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`relative rounded-2xl border ${
                   isHighlighted
-                    ? 'border-primary-500 shadow-xl shadow-primary-500/10'
-                    : 'border-gray-200 dark:border-gray-700'
-                } bg-white dark:bg-gray-800 p-8`}
+                    ? 'border-primary-500/50 neon-glow-cyan'
+                    : 'border-gray-800'
+                } bg-gray-900/80 p-8`}
               >
                 {isHighlighted && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -51,30 +51,30 @@ export function Pricing() {
                 <div>
                   <p className={`text-sm font-medium ${
                     isHighlighted
-                      ? 'text-primary-600'
-                      : 'text-gray-500 dark:text-gray-400'
-                  } uppercase tracking-wider`}>
+                      ? 'text-primary-400'
+                      : 'text-gray-500'
+                  } uppercase tracking-wider font-mono`}>
                     {plan.name}
                   </p>
 
                   <div className="mt-4">
                     {plan.price !== null ? (
                       <div className="flex items-baseline">
-                        <span className="text-5xl font-bold text-gray-900 dark:text-white">
+                        <span className="text-5xl font-bold text-white">
                           ${plan.price}
                         </span>
-                        <span className="ml-1 text-gray-500 dark:text-gray-400">
+                        <span className="ml-1 text-gray-500">
                           {plan.period}
                         </span>
                       </div>
                     ) : (
-                      <span className="text-5xl font-bold text-gray-900 dark:text-white">
+                      <span className="text-5xl font-bold text-white">
                         Custom
                       </span>
                     )}
                   </div>
 
-                  <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                  <p className="mt-4 text-sm text-gray-400">
                     {plan.description}
                   </p>
 
@@ -96,10 +96,10 @@ export function Pricing() {
                     <li key={featureIndex} className="flex items-start gap-3">
                       <Check className={`w-5 h-5 shrink-0 mt-0.5 ${
                         isHighlighted
-                          ? 'text-primary-500'
-                          : 'text-green-500'
+                          ? 'text-primary-400'
+                          : 'text-primary-500/60'
                       }`} />
-                      <span className="text-sm text-gray-600 dark:text-gray-400">
+                      <span className="text-sm text-gray-400">
                         {feature}
                       </span>
                     </li>

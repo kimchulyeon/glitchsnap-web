@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Pricing, Testimonials, CTA } from '@/components/sections'
+import { Pricing, CTA } from '@/components/sections'
 import { generatePageMetadata } from '@/lib/metadata'
 
 export const dynamic = 'force-static'
@@ -14,7 +14,6 @@ export default function PricingPage() {
   return (
     <>
       <Pricing />
-      <Testimonials />
       <CTA />
     </>
   )

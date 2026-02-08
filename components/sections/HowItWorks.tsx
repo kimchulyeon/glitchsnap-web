@@ -17,7 +17,7 @@ export function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Get Started in Minutes
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -28,7 +28,7 @@ export function HowItWorks() {
 
         <div className="relative">
           {/* Connection line */}
-          <div className="hidden md:block absolute top-16 left-1/2 -translate-x-1/2 w-2/3 h-0.5 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200 dark:from-primary-800 dark:via-primary-600 dark:to-primary-800" />
+          <div className="hidden md:block absolute top-16 left-1/2 -translate-x-1/2 w-2/3 h-0.5 bg-linear-to-r from-primary-200 via-primary-400 to-primary-200 dark:from-primary-800 dark:via-primary-600 dark:to-primary-800" />
 
           <div className="grid md:grid-cols-3 gap-12 md:gap-8">
             {howItWorks.map((step, index) => {

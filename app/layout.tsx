@@ -25,16 +25,14 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
+    'QA desktop app',
+    'session recorder',
+    'bug reporter',
     'test case management',
-    'QA tools',
-    'test automation',
-    'spreadsheet',
-    'Playwright',
+    'QA automation',
+    'bug capture',
+    'QA platform',
     'software testing',
-    'quality assurance',
-    'test management platform',
-    'Jira integration',
-    'regression testing',
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -81,7 +79,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#020617' },
+    { media: '(prefers-color-scheme: dark)', color: '#030712' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -97,7 +95,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <I18nProvider>
             <Header />
             <main className="flex-1">{children}</main>

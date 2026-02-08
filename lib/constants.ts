@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: 'GlitchSnap Studio',
-  tagline: 'Test Case Management for Modern QA Teams',
+  tagline: 'All-in-One QA Platform for Modern Teams',
   description:
-    'The test case management platform built for modern QA teams. Organize, execute, and track results in a familiar interface without the spreadsheet headache.',
+    'The all-in-one QA platform for modern teams. Capture bugs instantly, record sessions, and manage test cases — all in one place.',
   url: 'https://glitchsnap.com',
   ogImage: 'https://glitchsnap.com/og.png',
   links: {
@@ -48,78 +48,73 @@ export const navigation = {
 
 export const features = [
   {
-    title: 'Spreadsheet-style Editing',
+    title: 'Session Recorder',
     description:
-      'A familiar, high-performance interface with zero learning curve. Author and edit test cases as fast as you can type.',
-    icon: 'Table',
+      'GlitchSnap continuously records your browser sessions. Every click, scroll, and input is captured — ready for bug reproduction or team review.',
+    icon: 'Search',
   },
   {
-    title: 'Browser Test Recorder',
+    title: 'Bug Reporter',
     description:
-      'Powered by Playwright. Record complex user journeys effortlessly and convert them into automated test scripts instantly.',
-    icon: 'Play',
+      'GlitchSnap records the last 3 minutes continuously. One click generates a full report with replay video, screenshot, environment info, and action steps.',
+    icon: 'Bug',
   },
   {
-    title: 'Template Management',
+    title: 'TC Manager',
     description:
-      'Maintain consistency across your organization with reusable test templates and standardized testing procedures.',
-    icon: 'FileText',
-  },
-  {
-    title: 'Team Collaboration',
-    description:
-      'Accelerate velocity with real-time comments, comprehensive activity history, and seamless team synchronization.',
-    icon: 'Users',
+      'Excel-compatible test case management. Custom templates for any company format, Excel import/export, and real-time web collaboration.',
+    icon: 'ClipboardList',
   },
 ]
 
 export const painPoints = [
   {
-    title: 'Version Control Nightmares',
+    title: '"Works on my machine"',
     description:
-      'Stop hunting for v3_final_final.xlsx. GlitchSnap provides a single, immutable source of truth for your entire testing history.',
-    icon: 'History',
+      'Environment differences between QA and developers cause reproduction failures. GlitchSnap auto-captures OS, browser, and action context.',
+    icon: 'Monitor',
   },
   {
-    title: 'Messy Formatting',
+    title: '"Bug reports lack context"',
     description:
-      'No more broken formulas, ruined cell styling, or accidentally deleted rows. Benefit from structured data schemas designed specifically for QA workflows.',
-    icon: 'FileWarning',
+      'A screenshot and a vague description aren\'t enough. GlitchSnap auto-captures session replays, environment info, and action logs.',
+    icon: 'Code',
   },
   {
-    title: 'Collaboration Silos',
+    title: '"Excel here, tests there"',
     description:
-      'Say goodbye to "File is locked for editing." Enable real-time multi-user testing sessions without overwriting a teammate\'s critical results.',
-    icon: 'UsersX',
+      'Every company has a different Excel TC format. GlitchSnap unifies TC management with custom templates and Excel compatibility.',
+    icon: 'FileSpreadsheet',
   },
 ]
 
 export const pricingPlans = [
   {
-    name: 'Free',
+    name: 'Starter',
     price: 0,
     period: '/user/month',
-    description: 'Perfect for individual testers and small hobby projects.',
+    description: 'Perfect for individual QA engineers and small teams getting started.',
     features: [
-      'Up to 3 projects',
-      'Basic reporting',
+      'Up to 2 projects',
+      'Session Recorder (basic)',
+      'Bug Reporter (5 reports/day)',
       'Community support',
-      '100 test cases',
     ],
     cta: 'Get Started Free',
     highlighted: false,
   },
   {
     name: 'Pro',
-    price: 49,
+    price: 29,
     period: '/user/month',
-    description: 'Accelerate your team with advanced automation and integrations.',
+    description: 'Full power for professional QA teams shipping fast.',
     features: [
-      'Everything in Free',
-      'Unlimited test cases',
-      'Full Jira integration',
-      'Advanced analytics dashboards',
-      'Priority email support',
+      'Everything in Starter',
+      'Unlimited session recordings',
+      'Unlimited bug reports',
+      'TC Manager with Excel sync',
+      'Jira / Slack integration',
+      'Priority support',
     ],
     cta: 'Start 14-Day Free Trial',
     highlighted: true,
@@ -128,71 +123,38 @@ export const pricingPlans = [
     name: 'Enterprise',
     price: null,
     period: '',
-    description: 'Global infrastructure, security, and dedicated success management.',
+    description: 'Custom deployment, security, and dedicated success management.',
     features: [
       'Everything in Pro',
-      'SSO/SAML Integration',
-      'Dedicated Account Manager',
+      'SSO / SAML integration',
+      'On-premise deployment',
+      'Dedicated account manager',
       'Custom onboarding & training',
-      'Audit logs & compliance',
+      'SLA & audit logs',
     ],
     cta: 'Contact Sales',
     highlighted: false,
   },
 ]
 
-export const testimonials = [
-  {
-    quote:
-      'Moving from Excel to GlitchSnap was a total game-changer. Our regression testing cycles dropped by 45% in the first quarter alone.',
-    author: 'Sarah Chen',
-    role: 'QA Lead',
-    company: 'FintechNow',
-    rating: 5,
-  },
-  {
-    quote:
-      'The Jira integration is flawless. My team no longer wastes time jumping between tools. Finally, a platform built for modern QA workflows.',
-    author: 'Michael Ross',
-    role: 'Head of QA',
-    company: 'CloudStream',
-    rating: 5,
-  },
-  {
-    quote:
-      'Onboarding was seamless. The migration tool imported 1,200 of our legacy spreadsheets in minutes. Best investment our department made this year.',
-    author: 'Elena Rodriguez',
-    role: 'Senior QA Manager',
-    company: 'DataScale',
-    rating: 5,
-  },
-]
-
-export const companyLogos = [
-  'FINTECH',
-  'GlobalDev',
-  'StreamLine',
-  'DATACORE',
-  'VortexSaaS',
-]
 
 export const howItWorks = [
   {
     step: 1,
-    title: 'Import Your Test Cases',
+    title: 'Install & Connect',
     description:
-      'Upload your existing Excel files or start fresh. We handle the migration automatically.',
+      'Sign up and connect GlitchSnap to your web application. Setup takes less than 2 minutes.',
   },
   {
     step: 2,
-    title: 'Organize & Collaborate',
+    title: 'Record & Capture',
     description:
-      'Create test suites, assign to team members, and track progress in real-time.',
+      'Browse your app normally. GlitchSnap records your interactions for tests and captures bugs with full context.',
   },
   {
     step: 3,
-    title: 'Automate & Execute',
+    title: 'Manage & Ship',
     description:
-      'Generate automation scripts, run tests, and view results all in one place.',
+      'Organize test cases, share bug reports, and collaborate in real-time. Ship with confidence.',
   },
 ]

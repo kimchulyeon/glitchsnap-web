@@ -7,7 +7,7 @@ export const dynamic = 'force-static'
 export const metadata: Metadata = generatePageMetadata({
   title: 'Features',
   description:
-    'Discover powerful features for modern QA teams. Spreadsheet-style editing, browser test recorder, templates, and real-time collaboration.',
+    'Discover powerful features for modern QA teams. Session recording, bug capture, spreadsheet-style TC editing, and real-time collaboration.',
 })
 
 export default function FeaturesPage() {

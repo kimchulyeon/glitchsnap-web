@@ -1,13 +1,15 @@
 'use client'
 
-import type { Metadata } from 'next'
 import { motion } from 'framer-motion'
 import { CTA } from '@/components/sections'
+import { useI18n } from '@/lib/i18n'
 
 export default function AboutPage() {
+  const { t } = useI18n()
+
   return (
     <>
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-gray-950">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -15,58 +17,44 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white text-center">
-              About GlitchSnap Studio
+            <h1 className="text-4xl md:text-5xl font-bold text-white text-center">
+              {t.about.title}
             </h1>
-            <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 text-center">
-              We&apos;re building the future of test case management for modern QA teams.
+            <p className="mt-6 text-lg text-gray-400 text-center">
+              {t.about.subtitle}
             </p>
 
-            <div className="mt-16 prose prose-lg dark:prose-invert max-w-none">
-              <h2>Our Mission</h2>
-              <p>
-                GlitchSnap Studio was founded with a simple mission: to free QA teams from
-                the spreadsheet trap. We believe that quality assurance professionals
-                deserve tools that are as modern and powerful as the software they test.
-              </p>
+            <div className="mt-16 space-y-12">
+              <div>
+                <h2 className="text-2xl font-bold text-white mb-4">{t.about.mission.title}</h2>
+                <p className="text-gray-400 leading-relaxed">{t.about.mission.content}</p>
+              </div>
 
-              <h2>Our Story</h2>
-              <p>
-                We&apos;ve been in the trenches. We&apos;ve suffered through the v3_final_final.xlsx
-                nightmare. We&apos;ve lost critical test data when someone accidentally deleted
-                a row. We&apos;ve waited for colleagues to finish editing so we could make our
-                changes.
-              </p>
-              <p>
-                That&apos;s why we built GlitchSnap—a platform that combines the familiarity of
-                spreadsheets with the power of modern collaboration and automation tools.
-              </p>
+              <div>
+                <h2 className="text-2xl font-bold text-white mb-4">{t.about.story.title}</h2>
+                <p className="text-gray-400 leading-relaxed mb-4">{t.about.story.content1}</p>
+                <p className="text-gray-400 leading-relaxed">{t.about.story.content2}</p>
+              </div>
 
-              <h2>Our Values</h2>
-              <ul>
-                <li>
-                  <strong>Simplicity First:</strong> Complex problems don&apos;t require complex
-                  solutions. We strive for elegant simplicity in everything we build.
-                </li>
-                <li>
-                  <strong>Speed Matters:</strong> Your time is valuable. Our platform is
-                  optimized for performance at every level.
-                </li>
-                <li>
-                  <strong>Quality is Non-Negotiable:</strong> We practice what we preach.
-                  Our product is rigorously tested to ensure reliability.
-                </li>
-                <li>
-                  <strong>Customer Success:</strong> We succeed when you succeed. Our
-                  support team is here to help you get the most out of GlitchSnap.
-                </li>
-              </ul>
+              <div>
+                <h2 className="text-2xl font-bold text-white mb-6">{t.about.values.title}</h2>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {t.about.values.items.map((item, index) => (
+                    <div
+                      key={index}
+                      className="bg-gray-900/80 border border-gray-800 rounded-xl p-6 hover:border-primary-500/30 transition-colors"
+                    >
+                      <h3 className="text-lg font-semibold text-primary-400 mb-2">{item.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">{item.content}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-              <h2>Join Us</h2>
-              <p>
-                We&apos;re always looking for talented individuals who are passionate about
-                quality and want to help shape the future of software testing.
-              </p>
+              <div className="bg-linear-to-r from-primary-500/10 to-accent-500/10 border border-primary-500/20 rounded-2xl p-8 text-center">
+                <h2 className="text-2xl font-bold text-white mb-4">{t.about.join.title}</h2>
+                <p className="text-gray-400 leading-relaxed">{t.about.join.content}</p>
+              </div>
             </div>
           </motion.div>
         </div>

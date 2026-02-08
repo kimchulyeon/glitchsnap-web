@@ -2,34 +2,40 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  /* Primary: Deep blue */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
+  /* Primary: Cyan (Neon) */
+  --color-primary-50: #ecfeff;
+  --color-primary-100: #cffafe;
+  --color-primary-200: #a5f3fc;
+  --color-primary-300: #67e8f9;
+  --color-primary-400: #22d3ee;
+  --color-primary-500: #06b6d4;
+  --color-primary-600: #0891b2;
+  --color-primary-700: #0e7490;
+  --color-primary-800: #155e75;
+  --color-primary-900: #164e63;
 
-  /* Neutral: Slate */
-  --color-gray-50: #f8fafc;
-  --color-gray-100: #f1f5f9;
-  --color-gray-200: #e2e8f0;
-  --color-gray-300: #cbd5e1;
-  --color-gray-400: #94a3b8;
-  --color-gray-500: #64748b;
-  --color-gray-600: #475569;
-  --color-gray-700: #334155;
-  --color-gray-800: #1e293b;
-  --color-gray-900: #0f172a;
-  --color-gray-950: #020617;
+  /* Accent: Magenta / Electric Pink */
+  --color-accent-50: #fdf2f8;
+  --color-accent-100: #fce7f3;
+  --color-accent-200: #fbcfe8;
+  --color-accent-300: #f9a8d4;
+  --color-accent-400: #f472b6;
+  --color-accent-500: #ec4899;
+  --color-accent-600: #db2777;
+  --color-accent-700: #be185d;
 
-  /* Accent: Emerald (for success states) */
-  --color-accent-500: #10b981;
-  --color-accent-600: #059669;
+  /* Neutral: Deep dark */
+  --color-gray-50: #f0f4f8;
+  --color-gray-100: #d9e2ec;
+  --color-gray-200: #bcccdc;
+  --color-gray-300: #9fb3c8;
+  --color-gray-400: #829ab1;
+  --color-gray-500: #627d98;
+  --color-gray-600: #486581;
+  --color-gray-700: #334e68;
+  --color-gray-800: #243b53;
+  --color-gray-900: #102a43;
+  --color-gray-950: #0a1929;
 
   /* Light mode defaults */
   --background: #ffffff;
@@ -42,13 +48,13 @@
 }
 
 .dark {
-  --background: var(--color-gray-950);
-  --foreground: var(--color-gray-50);
-  --muted: var(--color-gray-800);
+  --background: #030712;
+  --foreground: #e2e8f0;
+  --muted: #0f1729;
   --muted-foreground: var(--color-gray-400);
-  --border: var(--color-gray-800);
-  --card: var(--color-gray-900);
-  --card-foreground: var(--color-gray-50);
+  --border: #1a2744;
+  --card: #0a1628;
+  --card-foreground: #e2e8f0;
 }
 
 @theme inline {
@@ -73,6 +79,16 @@
   --color-primary-800: var(--color-primary-800);
   --color-primary-900: var(--color-primary-900);
 
+  /* Accent palette */
+  --color-accent-50: var(--color-accent-50);
+  --color-accent-100: var(--color-accent-100);
+  --color-accent-200: var(--color-accent-200);
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+
   /* Fonts */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
@@ -94,13 +110,13 @@ html {
 
 /* Selection styling */
 ::selection {
-  background: var(--color-primary-200);
-  color: var(--color-primary-900);
+  background: var(--color-primary-400);
+  color: var(--color-gray-950);
 }
 
 .dark ::selection {
-  background: var(--color-primary-800);
-  color: var(--color-primary-100);
+  background: var(--color-primary-600);
+  color: white;
 }
 
 /* Focus ring utility */
@@ -109,7 +125,7 @@ html {
 }
 
 .focus-ring:focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid var(--color-primary-400);
   outline-offset: 2px;
 }
 
@@ -122,12 +138,53 @@ html {
   padding-right: 1.5rem;
 }
 
-/* Gradient text utility */
+/* Gradient text utility - Cyan to Magenta */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-400) 100%);
+  background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-accent-500) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Neon glow utilities */
+.neon-glow-cyan {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 60px rgba(6, 182, 212, 0.1);
+}
+
+.neon-glow-magenta {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 60px rgba(236, 72, 153, 0.1);
+}
+
+.neon-border {
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.dark .neon-border {
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.05), inset 0 0 15px rgba(6, 182, 212, 0.02);
+}
+
+/* Glitch text effect */
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 var(--color-accent-500), -2px 0 var(--color-primary-400);
+  }
+  25% {
+    text-shadow: -2px 0 var(--color-accent-500), 2px 0 var(--color-primary-400);
+  }
+  50% {
+    text-shadow: 2px 2px var(--color-accent-500), -2px -2px var(--color-primary-400);
+  }
+  75% {
+    text-shadow: -2px 2px var(--color-accent-500), 2px -2px var(--color-primary-400);
+  }
+  100% {
+    text-shadow: 2px 0 var(--color-accent-500), -2px 0 var(--color-primary-400);
+  }
+}
+
+.glitch-text:hover {
+  animation: glitch 0.3s ease-in-out;
 }
 
 /* Animation utilities */
@@ -144,4 +201,34 @@ html {
 
 .animate-fade-in {
   animation: fade-in 0.5s ease-out forwards;
+}
+
+@keyframes pulse-neon {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+/* Grid overlay for cyberpunk aesthetic — uses pseudo-element to avoid overriding background-image (e.g. gradients) */
+.cyber-grid {
+  position: relative;
+}
+
+.cyber-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
 }
