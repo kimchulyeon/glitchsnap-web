@@ -7,11 +7,11 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  default: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
-  primary: 'bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300',
-  success: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
-  warning: 'bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300',
-  outline: 'bg-transparent border border-current text-gray-600 dark:text-gray-400',
+  default: 'bg-gray-800 text-gray-300 border border-gray-700',
+  primary: 'bg-primary-500/10 text-primary-400 border border-primary-500/30',
+  success: 'bg-green-500/10 text-green-400 border border-green-500/30',
+  warning: 'bg-amber-500/10 text-amber-400 border border-amber-500/30',
+  outline: 'bg-transparent border border-gray-600 text-gray-400',
 }
 
 export function Badge({ variant = 'default', children, className = '' }: BadgeProps) {
