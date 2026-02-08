@@ -5,6 +5,7 @@ export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url
+  const now = new Date()
 
   // Static pages
   const staticPages = [
@@ -15,19 +16,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date('2024-01-15'),
+    lastModified: now,
     changeFrequency: 'weekly' as const,
     priority: route === '' ? 1 : 0.8,
   }))
 
   // Blog posts
   const blogPosts = [
-    'getting-started-with-glitchsnap',
-    'best-practices-test-case-management',
-    'playwright-integration-guide',
-  ].map((slug) => ({
-    url: `${baseUrl}/blog/${slug}/`,
-    lastModified: new Date('2024-01-15'),
+    { slug: 'getting-started-with-glitchsnap', date: '2025-01-15' },
+    { slug: 'bug-reporting-best-practices', date: '2025-01-10' },
+    { slug: 'session-recording-for-qa-teams', date: '2025-01-05' },
+  ].map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}/`,
+    lastModified: new Date(post.date),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }))

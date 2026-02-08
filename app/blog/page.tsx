@@ -10,28 +10,28 @@ const blogPosts = [
     slug: 'getting-started-with-glitchsnap',
     title: 'Getting Started with GlitchSnap Studio',
     excerpt:
-      'Install the desktop app, connect to your web application, and start recording your first Playwright test in under 5 minutes.',
-    date: '2024-03-15',
+      'Sign up, connect GlitchSnap to your web application, and capture your first bug report with full session replay in under 5 minutes.',
+    date: '2025-01-15',
     category: 'Tutorial',
     readTime: '5 min read',
   },
   {
     slug: 'bug-reporting-best-practices',
-    title: 'Bug Reporting Best Practices with rrweb',
+    title: 'Bug Reporting Best Practices for QA Teams',
     excerpt:
-      'How GlitchSnap uses rrweb to capture the last 3 minutes of user activity, creating bug reports that developers actually love.',
-    date: '2024-03-10',
+      'How GlitchSnap captures the last 3 minutes of user activity, creating bug reports with session replay that developers actually love.',
+    date: '2025-01-10',
     category: 'Best Practices',
     readTime: '8 min read',
   },
   {
-    slug: 'playwright-test-generation',
-    title: 'Auto-Generating Playwright Tests from User Actions',
+    slug: 'session-recording-for-qa-teams',
+    title: 'Why Session Recording Changes Everything for QA',
     excerpt:
-      'Deep dive into how GlitchSnap converts browser interactions into production-ready Playwright test code with smart selectors.',
-    date: '2024-03-05',
-    category: 'Technical',
-    readTime: '10 min read',
+      'Stop writing vague bug descriptions. Learn how automatic session recording eliminates "works on my machine" and speeds up bug resolution.',
+    date: '2025-01-05',
+    category: 'Insight',
+    readTime: '7 min read',
   },
 ]
 
