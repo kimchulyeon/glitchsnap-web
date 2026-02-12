@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import { I18nProvider } from '@/lib/i18n'
-import { Header, Footer } from '@/components/layout'
+import { Header } from '@/components/layout'
 import { siteConfig } from '@/lib/constants'
 import { generateOrganizationSchema, generateSoftwareApplicationSchema } from '@/lib/metadata'
 import './globals.css'
@@ -100,7 +100,7 @@ export default function RootLayout({
           <I18nProvider>
             <Header />
             <main className="flex-1">{children}</main>
-            <Footer />
+            {/* <Footer /> */}
           </I18nProvider>
         </ThemeProvider>
         {/* JSON-LD Structured Data */}

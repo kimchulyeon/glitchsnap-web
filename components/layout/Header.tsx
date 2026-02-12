@@ -3,12 +3,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Navigation } from './Navigation'
-import { Button } from '@/components/ui'
 import { siteConfig } from '@/lib/constants'
 import { useI18n } from '@/lib/i18n'
 
 export function Header() {
-  const { language, toggleLanguage, t } = useI18n()
+  const { language, toggleLanguage } = useI18n()
 
   return (
     <header className="sticky top-0 z-50 bg-gray-950/80 dark:bg-gray-950/80 backdrop-blur-lg border-b border-gray-800/50">
@@ -40,9 +39,9 @@ export function Header() {
             >
               {language === 'en' ? '한국어' : 'EN'}
             </button>
-            <Button href="https://app.glitchsnap.studio/signup">
+            {/* <Button href="https://app.glitchsnap.studio/signup">
               {t.nav.bookDemo}
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>

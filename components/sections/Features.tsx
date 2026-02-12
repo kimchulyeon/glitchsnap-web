@@ -1,9 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Video, Bug, ClipboardList } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui'
 import { useI18n } from '@/lib/i18n'
+
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || ''
 
 const icons = [Video, Bug, ClipboardList]
 const gradients = [
@@ -24,6 +28,35 @@ const borderColors = [
 
 export function Features() {
   const { t } = useI18n()
+  const pathname = usePathname()
+  const isFeaturePage = pathname.startsWith('/features')
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('loading')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          email,
+          subject: `[GlitchSnap] 데모 요청 - ${email}`,
+          from_name: 'GlitchSnap Landing',
+        }),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setEmail('')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <section id="features" className="py-20 md:py-28 bg-gray-900 dark:bg-gray-900 cyber-grid">
@@ -89,14 +122,35 @@ export function Features() {
               {t.features.cta.description}
             </p>
           </div>
-          <div className="flex gap-3 shrink-0">
-            <Button href="https://app.glitchsnap.studio/download">
-              {t.features.cta.getStarted}
-            </Button>
-            <Button variant="outline" href="/demo/">
-              {t.features.cta.requestDemo}
-            </Button>
-          </div>
+          {isFeaturePage ? (
+            <div className="shrink-0 w-full md:w-auto">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={t.features.cta.emailPlaceholder}
+                  required
+                  className="flex-1 px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50"
+                />
+                <Button type="submit" disabled={status === 'loading'}>
+                  {status === 'loading' ? t.features.cta.sending : t.features.cta.requestDemo}
+                </Button>
+              </form>
+              {status === 'success' && (
+                <p className="mt-2 text-sm text-green-400">{t.features.cta.success}</p>
+              )}
+              {status === 'error' && (
+                <p className="mt-2 text-sm text-red-400">{t.features.cta.error}</p>
+              )}
+            </div>
+          ) : (
+            <div className="flex gap-3 shrink-0">
+              <Button href="/features">
+                {t.features.cta.getStarted}
+              </Button>
+            </div>
+          )}
         </motion.div>
 
       </div>

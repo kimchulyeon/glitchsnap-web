@@ -2,17 +2,37 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Download } from 'lucide-react'
 import { Button } from '@/components/ui'
 import { useI18n } from '@/lib/i18n'
 
 export function CTA() {
   const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const { t } = useI18n()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    window.location.href = `https://app.glitchsnap.studio/signup?email=${encodeURIComponent(email)}`
+    setStatus('loading')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '',
+          email,
+          subject: `[GlitchSnap] 데모 요청 - ${email}`,
+          from_name: 'GlitchSnap Landing',
+        }),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setEmail('')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -33,12 +53,13 @@ export function CTA() {
             <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
               {t.cta.title}
             </h2>
-            <p className="mt-4 text-lg text-gray-400">
-              {t.cta.description}
-            </p>
+            <p className="mt-4 text-lg text-gray-400">{t.cta.description}</p>
 
             {/* Email Form */}
-            <form onSubmit={handleSubmit} className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            >
               <input
                 type="email"
                 value={email}
@@ -49,23 +70,22 @@ export function CTA() {
               />
               <Button
                 type="submit"
+                disabled={status === 'loading'}
                 className="bg-primary-500 text-white hover:bg-primary-600 px-6"
               >
-                {t.cta.getStarted}
+                {status === 'loading' ? t.cta.requestDemo + '...' : t.cta.requestDemo}
               </Button>
             </form>
 
-            {/* Demo link */}
-            <button
-              type="button"
-              className="mt-4 inline-flex items-center gap-2 text-gray-400 hover:text-primary-400 transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              <span className="text-sm">{t.cta.importExcel}</span>
-            </button>
+            {status === 'success' && (
+              <p className="mt-3 text-sm text-green-400">데모 요청이 접수되었습니다!</p>
+            )}
+            {status === 'error' && (
+              <p className="mt-3 text-sm text-red-400">전송에 실패했습니다. 다시 시도해주세요.</p>
+            )}
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

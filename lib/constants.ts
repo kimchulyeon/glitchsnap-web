@@ -14,9 +14,9 @@ export const siteConfig = {
 
 export const navigation = {
   main: [
-    { name: 'Features', href: '/features/' },
-    { name: 'Pricing', href: '/pricing/' },
-    { name: 'Resources', href: '/blog/' },
+    // { name: 'Features', href: '/features/' },
+    // { name: 'Pricing', href: '/pricing/' },
+    // { name: 'Resources', href: '/blog/' },
   ],
   footer: {
     product: [

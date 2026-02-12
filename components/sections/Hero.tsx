@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Download, Play } from 'lucide-react'
-import { Button, Badge } from '@/components/ui'
+import { Badge } from '@/components/ui'
 import { useI18n } from '@/lib/i18n'
 
 export function Hero() {
@@ -26,7 +25,7 @@ export function Hero() {
               {t.hero.badge}
             </Badge>
 
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-[1.1]">
+            {/* <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-[1.1]">
               {t.hero.title}{' '}
               <br className="hidden sm:block" />
               {t.hero.titleHighlight && (
@@ -35,22 +34,12 @@ export function Hero() {
                 </>
               )}
               <span className="gradient-text glitch-text">{t.hero.titleBrand}</span>
-            </h1>
+            </h1> */}
 
             <p className="mt-6 text-lg text-gray-400 max-w-lg">
               {t.hero.description}
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button size="lg" href="https://app.glitchsnap.studio/download">
-                <Download className="mr-2 w-4 h-4" />
-                {t.nav.bookDemo}
-              </Button>
-              <Button size="lg" variant="outline" href="#demo">
-                <Play className="mr-2 w-4 h-4" />
-                {t.hero.watchVideo}
-              </Button>
-            </div>
 
             {/* Social Proof */}
             <div className="mt-8 flex items-center gap-3">

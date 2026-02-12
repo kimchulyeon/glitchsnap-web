@@ -2,36 +2,19 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { navigation } from '@/lib/constants'
 import { useI18n } from '@/lib/i18n'
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
   const { language, toggleLanguage, t } = useI18n()
-
-  const isActive = (href: string) => {
-    if (href === '/') return pathname === '/'
-    return pathname.startsWith(href)
-  }
-
-  const getNavName = (name: string) => {
-    const navMap: Record<string, string> = {
-      Features: t.nav.features,
-      Pricing: t.nav.pricing,
-      Resources: t.nav.resources,
-    }
-    return navMap[name] || name
-  }
 
   return (
     <>
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center gap-1">
-        {navigation.main.map((item) => (
+        {/* {navigation.main.map((item) => (
           <Link
             key={item.name}
             href={item.href}
@@ -43,7 +26,7 @@ export function Navigation() {
           >
             {getNavName(item.name)}
           </Link>
-        ))}
+        ))} */}
       </nav>
 
       {/* Mobile Menu Button */}
@@ -67,7 +50,7 @@ export function Navigation() {
             className="absolute top-full left-0 right-0 bg-gray-950 border-b border-gray-800 md:hidden"
           >
             <nav className="container-narrow py-4 flex flex-col gap-1">
-              {navigation.main.map((item) => (
+              {/* {navigation.main.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -80,7 +63,7 @@ export function Navigation() {
                 >
                   {getNavName(item.name)}
                 </Link>
-              ))}
+              ))} */}
               <div className="mt-4 pt-4 border-t border-gray-800 flex flex-col gap-3">
                 <button
                   onClick={() => {

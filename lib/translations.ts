@@ -73,8 +73,12 @@ export const translations = {
         title: 'Ready to revolutionize your QA workflow?',
         description:
           'Join the teams building better software with GlitchSnap Studio.',
-        getStarted: 'Download Now',
+        getStarted: 'Explore Features',
         requestDemo: 'Request Demo',
+        emailPlaceholder: 'Enter your work email',
+        sending: 'Sending...',
+        success: 'Demo request submitted!',
+        error: 'Failed to send. Please try again.',
       },
       excellence: {
         title: 'Built for Modern QA Teams',
@@ -171,7 +175,7 @@ export const translations = {
         'GlitchSnap Studio is the QA tool your team has been waiting for. Start capturing bugs, recording sessions, and managing TCs in minutes.',
       placeholder: 'Enter your work email',
       getStarted: 'Download Free',
-      importExcel: 'Or request a demo',
+      requestDemo: 'Request a demo',
     },
 
     // Footer
@@ -334,8 +338,12 @@ export const translations = {
         title: 'QA 워크플로우를 혁신할 준비가 되셨나요?',
         description:
           'GlitchSnap Studio와 함께 더 나은 소프트웨어를 만드는 팀에 합류하세요.',
-        getStarted: '다운로드',
+        getStarted: '기능 살펴보기',
         requestDemo: '데모 요청',
+        emailPlaceholder: '업무용 이메일 입력',
+        sending: '전송 중...',
+        success: '데모 요청이 접수되었습니다!',
+        error: '전송에 실패했습니다. 다시 시도해주세요.',
       },
       excellence: {
         title: '현대 QA 팀을 위해 설계',
@@ -432,7 +440,7 @@ export const translations = {
         'GlitchSnap Studio는 당신의 팀이 기다려온 QA 도구입니다. 지금 시작하고 버그 캡처, 세션 녹화, TC 관리를 몇 분 안에 경험하세요.',
       placeholder: '업무용 이메일 입력',
       getStarted: '무료 다운로드',
-      importExcel: '또는 데모 요청',
+      requestDemo: '데모 요청',
     },
 
     // Footer
