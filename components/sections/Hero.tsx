@@ -25,7 +25,7 @@ export function Hero() {
               {t.hero.badge}
             </Badge>
 
-            {/* <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-[1.1]">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-[1.1]">
               {t.hero.title}{' '}
               <br className="hidden sm:block" />
               {t.hero.titleHighlight && (
@@ -34,7 +34,7 @@ export function Hero() {
                 </>
               )}
               <span className="gradient-text glitch-text">{t.hero.titleBrand}</span>
-            </h1> */}
+            </h1>
 
             <p className="mt-6 text-lg text-gray-400 max-w-lg">
               {t.hero.description}
