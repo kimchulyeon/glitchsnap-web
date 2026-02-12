@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui'
 import { useI18n } from '@/lib/i18n'
 
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || ''
+const WEB3FORMS_ACCESS_KEY = '06d21eda-4cfe-407c-a85c-ba73b2c24845'
 
 const icons = [Video, Bug, ClipboardList]
 const gradients = [

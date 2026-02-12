@@ -18,7 +18,7 @@ export function CTA() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '',
+          access_key: '06d21eda-4cfe-407c-a85c-ba73b2c24845',
           email,
           subject: `[GlitchSnap] 데모 요청 - ${email}`,
           from_name: 'GlitchSnap Landing',
