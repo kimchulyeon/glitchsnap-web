@@ -21,18 +21,18 @@ export const navigation = {
   footer: {
     product: [
       { name: 'Features', href: '/features/' },
-      { name: 'Pricing', href: '/pricing/' },
-      { name: 'Integrations', href: '/integrations/' },
+      { name: 'Pricing', href: '#' },
+      { name: 'Integrations', href: '#' },
       { name: 'Changelog', href: '/changelog/' },
     ],
     resources: [
       { name: 'Documentation', href: '/docs/' },
       { name: 'API Reference', href: '/api/' },
-      { name: 'QA Blog', href: '/blog/' },
+      { name: 'QA Blog', href: '#' },
       { name: 'Community', href: '/community/' },
     ],
     company: [
-      { name: 'About Us', href: '/about/' },
+      { name: 'About Us', href: '#' },
       { name: 'Careers', href: '/careers/' },
       { name: 'Contact', href: '/contact/' },
       { name: 'Partners', href: '/partners/' },

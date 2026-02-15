@@ -11,18 +11,18 @@ export function Footer() {
   const footerLinks = {
     product: [
       { name: t.footer.links.features, href: '/features/' },
-      { name: t.footer.links.pricing, href: '/pricing/' },
+      { name: t.footer.links.pricing, href: '#' },
       { name: t.footer.links.integrations, href: '#' },
       { name: t.footer.links.changelog, href: '#' },
     ],
     resources: [
       { name: t.footer.links.documentation, href: '#' },
       { name: t.footer.links.apiReference, href: '#' },
-      { name: t.footer.links.qaBlog, href: '/blog/' },
+      { name: t.footer.links.qaBlog, href: '#' },
       { name: t.footer.links.community, href: '#' },
     ],
     company: [
-      { name: t.footer.links.aboutUs, href: '/about/' },
+      { name: t.footer.links.aboutUs, href: '#' },
       { name: t.footer.links.careers, href: '#' },
       { name: t.footer.links.contact, href: '#' },
       { name: t.footer.links.partners, href: '#' },
